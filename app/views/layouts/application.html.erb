@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myroom</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+        <div class="panel panel-default bg-success">
+      <div class="panel-heading">
+        <h1>mss情報板</h1>
+      </div>
+      <div class="panel-body">
+        <ul　class="table table-bordered">
+          <li class="btn">
+             <a href="/">
+               <p class="text-muted">TOP</p>
+             </a>
+            </li>
+            <li class="btn btn-danger">
+             <a href="/msstops/equipment">
+               <p class="text-muted">装備</p>
+             </a>
+            </li>
+            <li class="btn btn-info">
+             <a href="/msstops/character">
+               <p class="text-muted">英雄</p>
+             </a>
+            </li>  
+            <li class="btn btn-primary">
+             <a href="">
+               <p class="text-muted">初心者向け</p>
+             </a>
+            </li>
+            <li class="btn btn-warning">
+             <a href="">
+               <p class="text-muted">小ネタ・小技</p>
+             </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>
