@@ -1,0 +1,9 @@
+<div class="table table-bordered">
+  <a class="btn" href="/character/new">キャラ投稿へ</a>
+</div>
+<div class="table table-bordered">
+  <% @characters.each do |character| %>
+    <h4><%= character.name %></h4>
+    <p><%= character_ability.valume %></p>
+  <% end %>
+</div>

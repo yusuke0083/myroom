@@ -1,0 +1,12 @@
+<div class="table table-bordered">
+  <a class="btn" href="/equipment/new">装備投稿へ</a>
+</div>
+<div class="table table-bordered">
+  <% @equipments.each do |equipment| %>
+    <h4><%= equipment.name %></h4>
+    <p><%= equipment.part %></p>
+    <p><%= equipment.level %></p></br>
+    <p><%= equipment_material.value %></p>
+    <p><%= equipment_ability.valume %></p>
+  <% end %>
+</div>

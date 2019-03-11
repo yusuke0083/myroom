@@ -1,0 +1,78 @@
+ <div class="container">
+   <% @equipment = Equipment.new unless@equipment %>
+   <%= form_for equipment_new_path do |f| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">装備登録</div>
+        
+        <div class="panel-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <%= f.label "名前", html: {class: 'col-sm-2 control-label'} %>
+              <div class="col-sm-10">
+                <%= f.text_field :name, html: {class: 'form-control'} %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label "部位", html: {class: 'col-sm-2 control-label'} %>
+              <div class="col-sm-10 radio">
+                <label><%= f.radio_button :part, "手" %>手</label>
+                <label><%= f.radio_button :part, "頭" %>頭</label>
+                <label><%= f.radio_button :part, "胴" %>胴</label>
+                <label><%= f.radio_button :part, "足" %>足</label>
+                <label><%= f.radio_button :part, "アクセサリー" %>アクセサリー</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <%= f.label "装備レベル", html: {class: 'col-sm-2 control-label'} %>
+              <div class="col-sm-10 radio">
+                <label><%= f.radio_button :level, "1" %>1</label>
+                <label><%= f.radio_button :level, "2" %>2</label>
+                <label><%= f.radio_button :level, "4" %>4</label>
+                <label><%= f.radio_button :level, "8" %>8</label>
+                <label><%= f.radio_button :level, "12" %>12</label>
+                <label><%= f.radio_button :level, "16" %>16</label>
+                <label><%= f.radio_button :level, "20" %>20</label>
+                <label><%= f.radio_button :level, "24" %>24</label>
+                <label><%= f.radio_button :level, "28" %>28</label>
+                <label><%= f.radio_button :level, "32" %>32</label>
+                <label><%= f.radio_button :level, "36" %>36</label>
+                <label><%= f.radio_button :level, "40" %>40</label>
+                <label><%= f.radio_button :level, "44" %>44</label>
+                <label><%= f.radio_button :level, "46" %>46</label>
+              </div>
+            </div>
+            
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">アビリティ</label>
+                <%= f.fields_for :equip_abis do |abi| %>
+                  <%= render 'ability', f: abi %>
+                  
+          <!--投稿画面に行こうとするとフォームの導入の一文でエラー　内容【undefined method `reflect_on_association' for NilClass:Class】-->
+                <div id="links">
+                  <%= link_to_add_association "フォームの追加", f, :equip_abis %><br/>
+                </div>
+                <% end %>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">合計要求素材</label>
+                <%= f.fields_for :equip_mates do |material| %>
+                  <%= render 'material', f: material %>
+                <div id="links">
+                  <%= link_to_add_association "add material", f, :equip_mate %><br/>
+                  </div>
+                <% end %>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                 <%= f.submit "登録" %>
+              </div>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    <% end %>  
+</div>

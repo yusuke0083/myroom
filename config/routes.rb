@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'top#index'
+  
+  get 'top' => 'top#index'
+  
+  get 'equipment' => 'equipment#index'
+  get 'equipment/new' => 'equipment#new'
+  post 'equipment/new' => 'equipment#create'
+  
+  get 'character' => 'character#index'
+  get 'character/new_character' => 'character#new'
+  post 'character/new' => 'character#create'
 end
