@@ -1,6 +1,6 @@
  <div class="container">
    <% @character = Character.new unless@character %>
-   <%= form_for @character do |f| %>
+   <%= form_for  @character, url: character_new_path do |f| %>
       <div class="panel panel-default">
         <div class="panel-heading">キャラ登録</div>
         
@@ -15,10 +15,10 @@
             
             <div class="form-group">
               <label class="col-sm-2 control-label">アビリティ</label>
-                <%= f.fields_for :character_abilitys do |builder| %>
-                  <%= render partial: "ability", locals:{abilities: @abilities}, f: builder %>
+                <%= f.fields_for :chara_abis do |character| %>
+                  <%= render 'chara_abi_fields', f: character%>
                 <div id="links">
-                  <%= link_to_add_association "add Ingredient", f, :equipment_ability %><br/>
+
                 </div>
                 <% end %>
             </div>

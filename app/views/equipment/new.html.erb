@@ -1,6 +1,6 @@
  <div class="container">
    <% @equipment = Equipment.new unless@equipment %>
-   <%= form_for equipment_new_path do |f| %>
+   <%= form_for @equipment, url: equipment_new_path do |f| %>
       <div class="panel panel-default">
         <div class="panel-heading">装備登録</div>
         
@@ -47,21 +47,19 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">アビリティ</label>
                 <%= f.fields_for :equip_abis do |abi| %>
-                  <%= render 'ability', f: abi %>
-                  
-          <!--投稿画面に行こうとするとフォームの導入の一文でエラー　内容【undefined method `reflect_on_association' for NilClass:Class】-->
-                <div id="links">
-                  <%= link_to_add_association "フォームの追加", f, :equip_abis %><br/>
-                </div>
+                  <%= render 'equip_abi_fields', f: abi %>
+                    <div id="links">
+                      <%= link_to_add_association "アビリティ追加", f, :equip_abis %><br/>
+                    </div>
                 <% end %>
             </div>
             
             <div class="form-group">
               <label class="col-sm-2 control-label">合計要求素材</label>
                 <%= f.fields_for :equip_mates do |material| %>
-                  <%= render 'material', f: material %>
-                <div id="links">
-                  <%= link_to_add_association "add material", f, :equip_mate %><br/>
+                  <%= render 'equip_mate_fields', f: material %>
+                  <div id="links">
+                    <%= link_to_add_association "素材追加", f, :equip_mates %><br/>
                   </div>
                 <% end %>
             </div>

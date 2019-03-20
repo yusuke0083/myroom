@@ -1,0 +1,69 @@
+<div class="nested-fields">
+  
+  <%= f.collection_select(:ability_id, Ability.all, :id, :name, :prompt => true) %>
+
+<!--以下後に消すが参考アビリティとして残す-->
+<!--  <span class="close" title="Close" style="display: none;">-</span>-->
+
+<!--      <option>----</option>-->
+<!--      <optgroup label="対攻撃力">-->
+<!--        <option>魔獣</option>-->
+<!--        <option>幻獣</option>-->
+<!--        <option>亜人</option>-->
+<!--        <option>無機物</option>-->
+<!--        <option>悪魔</option>-->
+<!--        <option>竜</option>-->
+<!--        <option>神</option>-->
+<!--        <option>光輪龍</option>-->
+<!--        <option>灼熱龍</option>-->
+<!--        <option>究極龍</option>-->
+<!--        <option>氷獄龍</option>-->
+<!--        <option>晶魔</option>-->
+<!--      <optgroup label="内政向け">-->
+<!--        <option>建設速度</option>-->
+<!--        <option>研究速度</option>-->
+<!--        <option>資源生産上限</option>-->
+<!--        <option>木材生産</option>-->
+<!--        <option>石材生産</option>-->
+<!--        <option>鉱石生産</option>-->
+<!--        <option>食糧生産</option>-->
+<!--        <option>魔石生産</option>-->
+<!--        <option>資源保護</option>-->
+<!--      <optgroup label="兵種攻撃力">-->
+<!--        <option>兵士</option>-->
+<!--        <option>騎兵</option>-->
+<!--        <option>槍兵</option>-->
+<!--        <option>弓兵</option>-->
+<!--      <optgroup label="兵種防御力">-->
+<!--        <option>兵士</option>-->
+<!--        <option>騎兵</option>-->
+<!--        <option>槍兵</option>-->
+<!--        <option>弓兵</option>-->
+<!--      <optgroup label="兵種訓練速度">-->
+<!--        <option>兵士</option>-->
+<!--        <option>騎兵</option>-->
+<!--        <option>槍兵</option>-->
+<!--        <option>弓兵</option> -->
+<!--        <option>砲兵</option> -->
+<!--      <optgroup label="その他">-->
+<!--        <option>オーラ最大値</option>-->
+<!--        <option>英雄移動速度</option>-->
+<!--        <option>クリティカル率</option>-->
+<!--        <option>オーラ消費効率</option>-->
+<!--        <option>兵士維持効率</option>-->
+<!--        <option>行軍速度</option>-->
+<!--        <option>運搬力</option>-->
+<!--        <option>装備生産速度</option>-->
+<!--        <option>装備生産効率</option>  -->
+<!--        <option>英雄経験値</option>-->
+<!--        <option>英雄親愛度</option>-->
+<!--      <optgroup label="戦争向け">-->
+<!--        <option>防御兵器生産効率</option>-->
+<!--        <option>破損兵器修理速度</option>-->
+<!--        <option>治癒速度</option>-->
+<!--        <option>治癒効率</option></select>-->
+  <%= f.text_field :valume, html: {class: 'form-control'} %>
+  <!--投稿画面に行こうとするとエラー　内容【undefined method `new_record?' for nil:NilClass】-->
+  <%= link_to_remove_association "削除", f %>
+</div>
+

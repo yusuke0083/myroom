@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   post 'equipment/new' => 'equipment#create'
   
   get 'character' => 'character#index'
-  get 'character/new_character' => 'character#new'
+  get 'character/new' => 'character#new'
   post 'character/new' => 'character#create'
 end
