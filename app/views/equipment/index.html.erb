@@ -5,7 +5,16 @@
   <% @equipments.each do |equipment| %>
     <h4><%= equipment.name %></h4>
     <p><%= equipment.part %></p>
-    <p><%= equipment.level %></p></br>
-    <p><%= equipment.id %></p>
+    <p><%= equipment.level %></p>
+    
+    <% @abilitys.each do |ability| %>
+    <span><% ability.name %></span>
+    <span><% valume %></span>
+    <% end %>
+    
+    <% @materials.each do |material| %>
+    <span><% material.name %></span>
+    <span><% value %></span>
+    <% end %>
   <% end %>
 </div>

@@ -1,8 +1,14 @@
 class EquipmentController < ApplicationController
     
     def index
-        @equipments= Equipment.all.order("level ASC")
-
+        # @equipment = Equipment.find(params[:id])とするとエラーが生じる[Couldn'n find Equipment without an ID]
+        @equipments = Equipment.all.order(level: "DESC")
+        
+        @materials = Material.where(params[:material_id])
+        @values = Equipment.where(params[:value])
+        
+        @abilitys = Ability.where(params[:ability_id])
+        @valumes = Equipment.where(params[:value]) 
     end
     
     def new
@@ -18,7 +24,6 @@ class EquipmentController < ApplicationController
     
     private
     def equipment_params
-        # 登録すると下の一文にエラーが発生する　内容【param is missing or the value is empty: equipment】
         params.require(:equipment).permit(:id, :name, :part, :level,
             equip_mates_attributes: [:id, :value, :equipment_id, :material_id, :_destroy, materials_attributes: [:id, :name, :genre, :_destroy]], 
             equip_abis_attributes: [:id, :valume, :equipment_id, :ability_id, :_destroy, abilitys_attributes: [:id, :name, :_destroy]])
