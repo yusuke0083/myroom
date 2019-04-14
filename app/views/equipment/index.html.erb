@@ -7,14 +7,15 @@
     <p><%= equipment.part %></p>
     <p><%= equipment.level %></p>
     
-    <% @abilitys.each do |ability| %>
-    <span><% ability.name %></span>
-    <span><% valume %></span>
+    <p>アビリティ</p>
+    <% equipment.equip_abis.each do |equipments_abilitys| %>
+    <span><%= equipments_abilitys.ability.name %></span>
+    <span><%= equipments_abilitys.valume %></span>
     <% end %>
+    <p>素材</p>
+    <% equipment.equip_mates.each do |equipments_materials| %>
+    <span><%= equipments_materials.material.name %></span>
     
-    <% @materials.each do |material| %>
-    <span><% material.name %></span>
-    <span><% value %></span>
     <% end %>
   <% end %>
 </div>
