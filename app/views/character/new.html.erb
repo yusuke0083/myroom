@@ -1,36 +1,35 @@
- <div class="container">
-   <% @character = Character.new unless@character %>
-   <%= form_for  @character, url: character_new_path do |f| %>
+<div class="container">
+    <% @character = Character.new unless@character %>
+    <%= form_for @character, url: character_new_path do |f| %>
       <div class="panel panel-default">
         <div class="panel-heading">キャラ登録</div>
         
         <div class="panel-body">
           <form class="form-horizontal">
             <div class="form-group">
-              <%= f.label "名前", html: {class: 'col-sm-2 control-label'} %>
+              <label class= "col-sm-2 control-label">名前</label>
               <div class="col-sm-10">
                 <%= f.text_field :name, html: {class: 'form-control'} %>
               </div>
             </div>
-            
+
             <div class="form-group">
               <label class="col-sm-2 control-label">アビリティ</label>
-                <%= f.fields_for :chara_abis do |character| %>
-                  <%= render 'chara_abi_fields', f: character%>
-                <div id="links">
-
-                </div>
+                <%= f.fields_for :chara_abis do |abi| %>
+                  <%= render 'chara_abi_fields', f: abi %>
+                    <div id="links">
+                      <%= link_to_add_association "アビリティ追加", f, :chara_abis %><br/>
+                    </div>
                 <% end %>
             </div>
-            
+
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                  <%= f.submit "登録" %>
               </div>
             </div>
           </form>
-          
         </div>
       </div>
-    <% end %>  
+    <% end %>
 </div>

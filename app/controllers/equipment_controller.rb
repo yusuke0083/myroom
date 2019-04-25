@@ -3,7 +3,6 @@ class EquipmentController < ApplicationController
     def index
         @equipments = Equipment.all
         
-        
     end
     
     def new
@@ -14,6 +13,20 @@ class EquipmentController < ApplicationController
     
     def create
         Equipment.create(equipment_params)
+    end
+    
+    def destroy
+        equipment = Equipment.find(params[:id])
+        equipment.destroy
+    end
+    
+    def edit
+        @equipment = Equipment.find(params[:id])
+    end
+    
+    def update
+        equipment = Equipment.find(params[:id])
+        equipment.update(equipment_params)
     end
     
     private

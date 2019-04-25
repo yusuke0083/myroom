@@ -1,7 +1,7 @@
 class CharacterController < ApplicationController
+    
     def index
-        @characters= Character.all
-
+        @characters = Character.all
     end
     
     def new
@@ -10,14 +10,27 @@ class CharacterController < ApplicationController
     end
     
     def create
-        
-        @character.save
+        Character.create(character_params)
+    end
+    
+    def destroy
+        character = Character.find(params[:id])
+        character.destroy
+    end
+    
+    def edit
+        @character = Character.find(params[:id])
+    end
+    
+    def update
+        character = Character.find(params[:id])
+        character.update(character_params)
     end
     
     private
     def character_params
-        params.require(:character).permit(:name,
-                                     chara_abis_attributes: [:id, :valume, :character_id, :ability_id, :_destroy,
-                                     abilitys_attributes:[:name]])
+        params.require(:character).permit(:id, :name,
+            chara_abis_attributes: [:id, :valume, :character_id, :ability_id, :_destroy, 
+            abilitys_attributes:[:id, :name, :_destroy]])
     end
 end

@@ -25,31 +25,19 @@
       </div>
       <div class="panel-body">
         <ul　class="table table-bordered">
-          <li class="btn">
-             <a href="/">
-               <p class="text-muted">TOP</p>
-             </a>
-            </li>
-            <li class="btn btn-danger">
-             <a href="/equipment">
-               <p class="text-muted">装備</p>
-             </a>
-            </li>
-            <li class="btn btn-info">
-             <a href="/character">
-               <p class="text-muted">英雄</p>
-             </a>
-            </li>  
-            <li class="btn btn-primary">
-             <a href="">
-               <p class="text-muted">初心者向け</p>
-             </a>
-            </li>
-            <li class="btn btn-warning">
-             <a href="">
-               <p class="text-muted">小ネタ・小技</p>
-             </a>
-          </li>
+            <%= link_to 'TOP', '/', class: 'btn btn-primary' %>
+            <%= link_to '装備', '/equipment', class: 'btn btn-danger' %>
+            <%= link_to '英雄', '/character', class: 'btn btn-info' %>
+            <%= link_to '初心者向け/小ネタ', '/', class: 'btn btn-warning' %>
+            <% if user_signed_in? %>
+              <div class="user_nav grid-6">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </div>
+            <% else %>
+              <div class="grid-6">
+                <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+              </div>
+          <% end %>
         </ul>
       </div>
     </div>

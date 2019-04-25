@@ -1,0 +1,60 @@
+<div class="panel panel-default">
+  <%= form_for("/equipment/#{@equipment.id}", method: :patch ) do |f| %>
+    <h3>
+      編集する
+    </h3>
+    <div class="panel-body">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">装備名</label>
+        <input type="text" name="image" value="<%= @equipment.name %>" placeholder="" autofocus="true">
+      </div>
+      
+      <div class="form-group">
+        <label class="col-sm-2 control-label">装備部位</label>
+        <div class="col-sm-10 radio">
+          <label><%= f.radio_button :part, "手" %>手</label>
+          <label><%= f.radio_button :part, "頭" %>頭</label>
+          <label><%= f.radio_button :part, "胴" %>胴</label>
+          <label><%= f.radio_button :part, "足" %>足</label>
+          <label><%= f.radio_button :part, "アクセサリー" %>アクセサリー</label>
+        </div>
+      </div>  
+    
+      <div class="form-group">
+        <label class= "col-sm-2 control-label">装備レベル</label>
+        <div class="col-sm-10 radio">
+          <label><%= f.radio_button :level, "1" %>1</label>
+          <label><%= f.radio_button :level, "2" %>2</label>
+          <label><%= f.radio_button :level, "4" %>4</label>
+          <label><%= f.radio_button :level, "8" %>8</label>
+          <label><%= f.radio_button :level, "12" %>12</label>
+          <label><%= f.radio_button :level, "16" %>16</label>
+          <label><%= f.radio_button :level, "20" %>20</label>
+          <label><%= f.radio_button :level, "24" %>24</label>
+          <label><%= f.radio_button :level, "28" %>28</label>
+          <label><%= f.radio_button :level, "32" %>32</label>
+          <label><%= f.radio_button :level, "36" %>36</label>
+          <label><%= f.radio_button :level, "40" %>40</label>
+          <label><%= f.radio_button :level, "44" %>44</label>
+          <label><%= f.radio_button :level, "46" %>46</label>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">アビリティ</label>
+          <%= f.fields_for :equip_abis do |abi| %>
+            <%= render 'equip_abi_edit_fields', f: abi %>
+          <% end %>
+      </div>
+      
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">合計要求素材</label>
+          <%= f.fields_for :equip_mates do |material| %>
+            <%= render 'equip_mate_edit_fields', f: material %>
+          <% end %>
+      </div>
+    </div>
+              
+    <%= f.submit "編集" %>
+  <% end %>
+</div>

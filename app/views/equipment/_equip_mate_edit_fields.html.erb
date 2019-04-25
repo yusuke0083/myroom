@@ -1,0 +1,4 @@
+<div class="nested-fields col-sm-10">
+    <%= f.collection_select(:material_id, Material.order('genre ASC').all, :id, :name, :prompt => true) %>
+    <%= f.text_field :value,  html: {class: 'form-control'} %>
+</div>

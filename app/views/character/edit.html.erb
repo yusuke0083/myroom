@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <%= form_for("/character/#{@character.id}", method: :patch ) do |f| %>
+    <h3>
+      編集する
+    </h3>
+    <div class="panel-body">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">英雄名</label>
+        <input type="text" name="image" value="<%= @character.name %>" placeholder="" autofocus="true">
+      </div>
+      
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">アビリティ</label>
+          <%= f.fields_for :chara_abis do |abi| %>
+            <%= render 'chara_abi_edit_fields', f: abi %>
+          <% end %>
+      </div>
+    </div>
+              
+    <%= f.submit "編集" %>
+  <% end %>
+</div>
