@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <%= form_for("/equipment/#{@equipment.id}", method: :patch ) do |f| %>
+  <%= form_for("/equipment/#{@equipment.id}", method: :patch) do |f| %>
     <h3>
       編集する
     </h3>
@@ -53,8 +53,9 @@
             <%= render 'equip_mate_edit_fields', f: material %>
           <% end %>
       </div>
+      
     </div>
-              
+
     <%= f.submit "編集" %>
   <% end %>
 </div>

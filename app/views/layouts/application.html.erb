@@ -26,17 +26,13 @@
       <div class="panel-body">
         <ul　class="table table-bordered">
             <%= link_to 'TOP', '/', class: 'btn btn-primary' %>
-            <%= link_to '装備', '/equipment', class: 'btn btn-danger' %>
+            <%= link_to '装備', '/equipments', class: 'btn btn-danger' %>
             <%= link_to '英雄', '/character', class: 'btn btn-info' %>
             <%= link_to '初心者向け/小ネタ', '/', class: 'btn btn-warning' %>
             <% if user_signed_in? %>
-              <div class="user_nav grid-6">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </div>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'pull-right'  %>
             <% else %>
-              <div class="grid-6">
-                <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-              </div>
+                <%= link_to "ログイン", new_user_session_path, class: 'pull-right' %>
           <% end %>
         </ul>
       </div>

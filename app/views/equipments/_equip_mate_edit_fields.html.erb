@@ -1,0 +1,4 @@
+<div class="nested-fields col-sm-10">
+    <%= f.collection_select(:material_id, Material.order('genre ASC').all, :id, :name, :selected => 'equipments_materialss.material.name') %>
+    <%= f.text_field :value %>
+</div>

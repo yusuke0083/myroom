@@ -9,13 +9,7 @@ Rails.application.routes.draw do
   
   get 'top' => 'top#index'
   
-  get 'equipment' => 'equipment#index'
-  get 'equipment/new' => 'equipment#new'
-  post 'equipment/new' => 'equipment#create'
-  delete 'equipment/:id' => 'equipment#destroy'
-  patch 'equipment/:id'  => 'equipment#update'
-  get 'equipment/:id/edit' => 'equipment#edit'
-
+  resources :equipments, only:[:index, :new, :edit, :update, :destroy, :create]
   
   get 'character' => 'character#index'
   get 'character/new' => 'character#new'

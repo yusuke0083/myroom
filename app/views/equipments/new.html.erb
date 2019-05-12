@@ -1,6 +1,6 @@
  <div class="container">
    <% @equipment = Equipment.new unless@equipment %>
-   <%= form_for @equipment, url: equipment_new_path do |f| %>
+   <%= form_for @equipment, url: equipment_index_path do |f| %>
       <div class="panel panel-default">
         <div class="panel-heading">装備登録</div>
         
