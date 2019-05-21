@@ -27,7 +27,7 @@
         <ul　class="table table-bordered">
             <%= link_to 'TOP', '/', class: 'btn btn-primary' %>
             <%= link_to '装備', '/equipments', class: 'btn btn-danger' %>
-            <%= link_to '英雄', '/character', class: 'btn btn-info' %>
+            <%= link_to '英雄', '/characters', class: 'btn btn-info' %>
             <%= link_to '初心者向け/小ネタ', '/', class: 'btn btn-warning' %>
             <% if user_signed_in? %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'pull-right'  %>

@@ -1,4 +1,4 @@
 <div class="nested-fields">
   <%= f.collection_select(:ability_id, Ability.all, :id, :name, :selected => 'equipments_abilitys.ability.name' )  %>
-  <%= f.text_field :valume %>
+  <%= f.text_field :valume,  html: {class: 'form-control'} %>
 </div>

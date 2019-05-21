@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <%= form_for("/character/#{@character.id}", method: :patch ) do |f| %>
+  <%= form_for @character, url: "/characters/#{@character.id}" do |f| %>
     <h3>
       編集する
     </h3>

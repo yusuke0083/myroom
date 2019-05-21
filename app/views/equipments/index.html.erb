@@ -1,59 +1,73 @@
 <div class="table table-bordered">
   <% if user_signed_in? %>
     <div class="user_nav grid-6">
-      <%= link_to '装備投稿へ', "/equipments/new", method: :get, class: 'btn' %>
+      <%= link_to '装備投稿へ', "/equipments/new", class:  'btn' %>
     </div>
   <% end %>
 </div>
 
 <div class="conetainer">
-    <% @equipments.each do |equipment| %>
-      <div class="panel panel-default col-4">
-        <p class="panel-heading lead col-auto"><%= equipment.name %></p>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-auto">部位：</div>
-            <div><%= equipment.part %></div>
-            <div class="col-auto">装備レベル：</div>
-            <div><%= equipment.level %></div>
+  <div class="row">
+    <div class="col-6">
+      <% @equipments.each do |equipment| %>
+        <div class="panel panel-default col-auto col-offset-1">
+          <div id="name" class="panel-heading lead col-auto"><%= equipment.name %></div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-auto">部位：</div>
+              <div><%= equipment.part %></div>
+              <div class="col-auto">装備レベル：</div>
+              <div><%= equipment.level %></div>
+            </div>
+            
+            <div class="row pull-left">
+              <p>アビリティ</p>
+              <table class="table table-condensed table-responsive table-noborder">
+                <% equipment.equip_abis.each do |equipments_abilitys| %>
+                  <tbody>
+                    <td class="col-auto"><%= equipments_abilitys.ability.name %></td>
+                    <td class="col-auto"><%= equipments_abilitys.valume %></td>
+                  </tbody>
+                <% end %>
+              </table>
+            </div>
+            
+            <div class="row pull-left">
+              <p>素材</p>
+              <table class="table table-condensed table-responsive table-noborder">
+                <% equipment.equip_mates.each do |equipments_materials| %>
+                  <tbody>
+                    <td class="col-auto"><%= equipments_materials.material.name %></td>
+                    <td class="col-auto"><%= equipments_materials.value %></td>
+                 </tbody>
+                <% end %>
+              </table>
+            </div>
+          </div>  
+            
+          <div class="panel-footer">
+          </br><% if user_signed_in? %>
+                 <%= link_to '編集', "/equipments/#{equipment.id}/edit", method: :get %>
+                 <%= link_to '削除', "/equipments/#{equipment.id}", method: :delete %>
+               <% end %>
           </div>
-          
-          <div class="row pull-left">
-            <p>アビリティ</p>
-            <table class="table table-condensed table-responsive table-noborder">
-              <% equipment.equip_abis.each do |equipments_abilitys| %>
-                <tbody>
-                  <td class="col-auto"><%= equipments_abilitys.ability.name %></td>
-                  <td class="col-auto"><%= equipments_abilitys.valume %></td>
-                </tbody>
-              <% end %>
-            </table>
+    </div>      
+  </div>
+        </div>       
+      <% end %>
+  <div class="row">
+    <div class="col-4">
+    <div class="panel panel-default col-auto"> 
+      <div class="panel-heading lead col-auto">一覧</div>
+        <div class="navbar col-auto">
+          <div class="panel-body">
+            <% @equipments.each do |equipment| %>
+              <a href="/equipments#name"><%= equipment.name %></a></br>
+            <% end %>
           </div>
-          
-          <div class="row pull-left">
-            <p>素材</p>
-            <table class="table table-condensed table-responsive table-noborder">
-              <% equipment.equip_mates.each do |equipments_materials| %>
-                <tbody>
-                  <td class="col-auto"><%= equipments_materials.material.name %></td>
-                  <td class="col-auto"><%= equipments_materials.value %></td>
-               </tbody>
-              <% end %>
-            </table>
-          </div>
-        </div>  
-          
-        <div class="panel-footer">
-        </br><% if user_signed_in? %>
-               <%= link_to '編集', "/equipments/#{equipment.id}/edit", method: :get %>
-               <%= link_to '削除', "/equipments/#{equipment.id}", method: :delete %>
-             <% end %>
         </div>
-
-      </div>       
-    <% end %>
-    
-    <div class="row col-3">
-      
+    </div>    
     </div>
+  </div>
 </div>
+
