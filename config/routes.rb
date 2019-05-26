@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   
   get 'top' => 'top#index'
   
-  resources :equipments, only:[:index, :new, :edit, :update, :destroy, :create]
-  resources :characters, only:[:index, :new, :edit, :update, :destroy, :create] 
+  resources :equipments
+  resources :characters 
 
 
 end

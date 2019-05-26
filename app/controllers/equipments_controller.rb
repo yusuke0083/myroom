@@ -2,7 +2,13 @@ class EquipmentsController < ApplicationController
         
     def index
         @equipments = Equipment.all
-        
+        @ability = Ability.group(:name).pluck(:name).sort
+    end
+    
+    def search
+        @abilitys = Ability.where('name LIKE ?', "%#{params[:name]}%")
+        @ability = Ability.group(:name).pluck(:name).sort
+        render :index
     end
     
     def new
