@@ -3,6 +3,7 @@ class CharactersController < ApplicationController
     def index
         @characters = Character.all
         @ability = Ability.group(:name).pluck(:name).sort
+        
     end
     
     def search

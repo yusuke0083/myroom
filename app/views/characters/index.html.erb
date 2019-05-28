@@ -12,7 +12,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">
             <% @characters.each do |character| %>
-              <a href="/equipments#<%= character.id %>"><%= character.name %></a></br>
+              <a href="/characters#<%= character.id %>"><%= character.name %></a></br>
             <% end %>
           </a>
         </div>
@@ -50,31 +50,9 @@
   <% end %>
 </div>
 
+<!--種類別タブ-->
+<%= render 'tab' %>
+
 <div class="conetainer">
-  <div class="row">
-  <div class="col-6">
-    <div class="row">
-      <% @characters.each do |character| %>
-        <div class="col-6">
-        <div class="panel panel-default col-auto col-offset-1">
-          <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>
-          <div class="panel-body">
-            <p>アビリティ</p>
-            <% character.chara_abis.each do |characters_abilitys| %>
-            <span><%= characters_abilitys.ability.name %></span>
-            <span><%= characters_abilitys.valume %></span>
-            <% end %>
-            <div class="panel-footer">
-              <% if user_signed_in? %>
-                <%= link_to '編集', "/characters/#{character.id}/edit", method: :get %>
-                <%= link_to '削除', "/characters/#{character.id}", method: :delete %>
-              <% end %> 
-            </div>  
-          </div>      
-        </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  </div>
+  
 </div>

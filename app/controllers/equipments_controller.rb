@@ -3,6 +3,7 @@ class EquipmentsController < ApplicationController
     def index
         @equipments = Equipment.all
         @ability = Ability.group(:name).pluck(:name).sort
+        @part_hand = Equipment.where("part=?",'手')
     end
     
     def search
