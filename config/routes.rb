@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   
   get 'top' => 'top#index'
   
-  resources :equipments
+  resources :equipments do
+    collection do
+      get 'search'
+    end
+  end
   resources :characters 
 
 

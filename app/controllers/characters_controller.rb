@@ -3,6 +3,10 @@ class CharactersController < ApplicationController
     def index
         @characters = Character.all
         @ability = Ability.group(:name).pluck(:name).sort
+        @chara_nomal = Ability.where("genre=?",'')
+        @chara_mh = Ability.where("genre=?",'モンハン')
+        @chara_battle = Ability.where("genre=?",'戦争')
+        @chara_mate = Ability.where("genre=?",'素材集め')
         
     end
     

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!--ログイン-->
+<!--#ser.email = 'atomic8302@gmail.com'-->
+<!--user.password = 'msspass'-->
 <html>
   <head>
     <meta charset="utf-8">
@@ -35,8 +38,6 @@
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'pull-right'  %>
             <% else %>
                 <%= link_to "ログイン", new_user_session_path, class: 'pull-right' %>
-                <!--#ser.email = 'atomic8302@gmail.com'-->
-                <!--user.password = 'msspass'-->
           <% end %>
         </ul>
       </div>

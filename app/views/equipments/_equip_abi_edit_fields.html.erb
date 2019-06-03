@@ -1,5 +1,5 @@
 <div class="nested-fields col-sm-10">
-  <%= f.collection_select(:ability_id, Ability.all, :id, :name, :selected => 'equipments_abilitys.ability.name' )  %>
+  <%= f.collection_select(:ability_id, Ability.all, :id, :name )  %>
   <%= f.text_field :valume %>
   <%= link_to_remove_association "削除", f %>
 </div>

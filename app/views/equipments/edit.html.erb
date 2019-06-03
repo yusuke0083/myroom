@@ -53,25 +53,29 @@
       
         <div class="row">
           <div class="form-group">
-            <label  class="col-auto control-label">アビリティ</label>
-              <%= f.fields_for :equip_abis do |abi| %>
+            <label class="col-12 control-label">アビリティ</label>
+            <div class="col-12">
+              <%= f.fields_for :equip_abis, @equip_abi do |abi| %>
                 <%= render 'equip_abi_edit_fields', f: abi %>
-                <div id="links">
-                  <%= link_to_add_association "アビリティ追加", f, :equip_abis %><br/>
-                </div>
               <% end %>
+            </div>
+              <div id="links" class="col-2">
+                <%= link_to_add_association "アビリティ追加", f, :equip_abis %><br/>
+              </div>
           </div>
         </div>  
           
         <div class="row">  
           <div class="form-group">
-            <label  class="col-auto control-label">合計要求素材</label>
+            <label class="col-12 control-label">合計要求素材</label>
+            <div class="col-12">
               <%= f.fields_for :equip_mates do |material| %>
                 <%= render 'equip_mate_edit_fields', f: material %>
-                <div id="links">
-                  <%= link_to_add_association "素材追加", f, :equip_mates %><br/>
-                </div>
               <% end %>
+            </div>  
+              <div id="links" class="col-2">
+                <%= link_to_add_association "素材追加", f, :equip_mates %><br/>
+              </div>
           </div>
         </div>
         

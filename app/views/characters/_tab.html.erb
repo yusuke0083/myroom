@@ -1,19 +1,16 @@
 <ul class="nav nav-tabs">
     
   <li class="nav-item">
-    <a href="#tab1" class="nav-link" data-toggle="tab">第一部</a>
+    <a href="#tab1" class="nav-link" data-toggle="tab">モンハン</a>
   </li>
   <li class="nav-item">
-    <a href="#tab2" class="nav-link" data-toggle="tab">第二部</a>
+    <a href="#tab2" class="nav-link" data-toggle="tab">戦争</a>
   </li>
   <li class="nav-item">
-    <a href="#tab3" class="nav-link" data-toggle="tab">未定</a>
+    <a href="#tab3" class="nav-link" data-toggle="tab">素材集め</a>
   </li>
   <li class="nav-item">
-    <a href="#tab4" class="nav-link" data-toggle="tab">コラボ</a>
-  </li>
-  <li class="nav-item">
-    <a href="#tab5" class="nav-link" data-toggle="tab">初期</a>
+    <a href="#tab4" class="nav-link" data-toggle="tab">初期</a>
   </li>
 </ul>
 
@@ -23,7 +20,7 @@
             <div class="row">
             <div class="col-6">
                 <div class="row">
-                  <% @characters.each do |character| %>
+                  <% @chara_mh.each do |character| %>
                     <div class="col-6">
                     <div class="panel panel-default col-auto col-offset-1">
                       <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>
@@ -46,23 +43,93 @@
                 </div>
             </div>
             </div>
-
         </div>
         
         <div id="tab2" class="tab-pane">
-           
-        
+          <div class="row">
+            <div class="col-6">
+                <div class="row">
+                  <% @chara_battle.each do |character| %>
+                    <div class="col-6">
+                    <div class="panel panel-default col-auto col-offset-1">
+                      <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>
+                      <div class="panel-body">
+                        <p>アビリティ</p>
+                        <% character.chara_abis.each do |characters_abilitys| %>
+                        <span><%= characters_abilitys.ability.name %></span>
+                        <span><%= characters_abilitys.valume %></span>
+                        <% end %>
+                        <div class="panel-footer">
+                          <% if user_signed_in? %>
+                            <%= link_to '編集', "/characters/#{character.id}/edit", method: :get %>
+                            <%= link_to '削除', "/characters/#{character.id}", method: :delete %>
+                          <% end %> 
+                        </div>  
+                      </div>      
+                    </div>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+            </div>
         </div>
         
         <div id="tab3" class="tab-pane">
-            <p>c</p>
+            <div class="row">
+            <div class="col-6">
+                <div class="row">
+                  <% @chara_mate.each do |character| %>
+                    <div class="col-6">
+                    <div class="panel panel-default col-auto col-offset-1">
+                      <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>
+                      <div class="panel-body">
+                        <p>アビリティ</p>
+                        <% character.chara_abis.each do |characters_abilitys| %>
+                        <span><%= characters_abilitys.ability.name %></span>
+                        <span><%= characters_abilitys.valume %></span>
+                        <% end %>
+                        <div class="panel-footer">
+                          <% if user_signed_in? %>
+                            <%= link_to '編集', "/characters/#{character.id}/edit", method: :get %>
+                            <%= link_to '削除', "/characters/#{character.id}", method: :delete %>
+                          <% end %> 
+                        </div>  
+                      </div>      
+                    </div>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+            </div>
         </div>
         
         <div id="tab4" class="tab-pane">
-            <p>d</p>
+            <div class="row">
+            <div class="col-6">
+                <div class="row">
+                  <% @chara_nomal.each do |character| %>
+                    <div class="col-6">
+                    <div class="panel panel-default col-auto col-offset-1">
+                      <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>
+                      <div class="panel-body">
+                        <p>アビリティ</p>
+                        <% character.chara_abis.each do |characters_abilitys| %>
+                        <span><%= characters_abilitys.ability.name %></span>
+                        <span><%= characters_abilitys.valume %></span>
+                        <% end %>
+                        <div class="panel-footer">
+                          <% if user_signed_in? %>
+                            <%= link_to '編集', "/characters/#{character.id}/edit", method: :get %>
+                            <%= link_to '削除', "/characters/#{character.id}", method: :delete %>
+                          <% end %> 
+                        </div>  
+                      </div>      
+                    </div>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+            </div>
         </div>
         
-        <div id="tab5" class="tab-pane">
-            <p>e</p>
-        </div>
 </div>

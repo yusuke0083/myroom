@@ -24,19 +24,19 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">
-                    <%= form_tag(equipments_path, method: "get") do %>
-                    <%= select_tag(:name, @ability) %>
-                    <%= submit_tag "絞り込み" %>
-                  <% end %>
-                  
-                  <% @ability.each do |f| %>
-                    <p><%= f %></p>
+                  <%= search_form_for(@q, url:search_equipments_path) do |f| %>
+                  <%= f.collection_radio_buttons(:ability_name_eq, @abilitys, :id, :name) %>
+                  <%= submit_tag "検索" %>
                   <% end %>
                 </a>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">検索フォーム予定</a>
+            <a class="nav-link" href="#"></a>
+              <div class="menu">
+              
+              
+              </div>
         </li>
     </ul>
   </div>
