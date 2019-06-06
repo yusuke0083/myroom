@@ -1,44 +1,47 @@
 <ul class="nav nav-tabs">
-    
   <li class="nav-item">
-    <a href="#tab1" class="nav-link" data-toggle="tab">手</a>
+    <a href="#tab1" class="nav-link" data-toggle="tab">全般</a>
   </li>
   <li class="nav-item">
-    <a href="#tab2" class="nav-link" data-toggle="tab">頭</a>
+    <a href="#tab2" class="nav-link" data-toggle="tab">手</a>
   </li>
   <li class="nav-item">
-    <a href="#tab3" class="nav-link" data-toggle="tab">体</a>
+    <a href="#tab3" class="nav-link" data-toggle="tab">頭</a>
   </li>
   <li class="nav-item">
-    <a href="#tab4" class="nav-link" data-toggle="tab">足</a>
+    <a href="#tab4" class="nav-link" data-toggle="tab">体</a>
   </li>
   <li class="nav-item">
-    <a href="#tab5" class="nav-link" data-toggle="tab">アクセ</a>
+    <a href="#tab5" class="nav-link" data-toggle="tab">足</a>
+  </li>
+  <li class="nav-item">
+    <a href="#tab6" class="nav-link" data-toggle="tab">アクセ</a>
   </li>
 </ul>
 
 
 <div class="tab-content">
   <div id="tab1" class="tab-pane active">
-    <%= render 'tab_hand' %>
-     
-  </div>  
-    
-  <div id="tab2" class="tab-pane">
-    <%= render 'tab_head' %>
-    
+    <%= render 'tab_all' %>
   </div>
   
+  <div id="tab2" class="tab-pane">
+    <%= render 'tab_hand' %>
+  </div>  
+    
   <div id="tab3" class="tab-pane">
-    <%= render 'tab_body' %>
-      
+    <%= render 'tab_head' %>
   </div>
   
   <div id="tab4" class="tab-pane">
-    <%= render 'tab_foot' %>
+    <%= render 'tab_body' %>
   </div>
   
   <div id="tab5" class="tab-pane">
+    <%= render 'tab_foot' %>
+  </div>
+  
+  <div id="tab6" class="tab-pane">
     <%= render 'tab_accessory' %>
   </div>
 </div>

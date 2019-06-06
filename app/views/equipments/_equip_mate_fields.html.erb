@@ -1,5 +1,5 @@
 <div class="nested-fields col-sm-10">
-    <%= f.collection_select(:material_id, Material.order('genre ASC').all, :id, :name, :prompt => true) %>
+    <%= f.collection_select(:material_id, Material.order('genre ASC').all, :id, :name, :include_blank => true) %>
     
     
 

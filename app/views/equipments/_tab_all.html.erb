@@ -1,0 +1,52 @@
+<div class="row">
+<div class="col-6">
+    <div class="row">
+      <% @equipments.each do |equipment| %>
+        <div class="col-6">
+          <div class="panel panel-default col-auto col-offset-1">
+            <div id="<%= equipment.id %>" class="panel-heading lead col-auto"><%= equipment.name %></div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-auto">部位：</div>
+                <div><%= equipment.part %></div>
+                <div class="col-auto">装備レベル：</div>
+                <div><%= equipment.level %></div>
+              </div>
+              
+              <div class="row pull-left">
+                <p>アビリティ</p>
+                <table class="table table-condensed table-responsive table-noborder">
+                  <% equipment.equip_abis.each do |equipments_abilitys| %>
+                    <tbody>
+                      <td class="col-auto"><%= equipments_abilitys.ability.name %></td>
+                      <td class="col-auto"><%= equipments_abilitys.valume %></td>
+                    </tbody>
+                  <% end %>
+                </table>
+              </div>
+              
+              <div class="row pull-left">
+                <p>素材</p>
+                <table class="table table-condensed table-responsive table-noborder">
+                  <% equipment.equip_mates.each do |equipments_materials| %>
+                    <tbody>
+                      <td class="col-auto"><%= equipments_materials.material.name %></td>
+                      <td class="col-auto"><%= equipments_materials.value %></td>
+                   </tbody>
+                  <% end %>
+                </table>
+              </div>
+            </div>  
+              
+            <div class="panel-footer">
+            </br><% if user_signed_in? %>
+                   <%= link_to '編集', "/equipments/#{equipment.id}/edit", method: :get %>
+                   <%= link_to '削除', "/equipments/#{equipment.id}", method: :delete %>
+                 <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
+</div>

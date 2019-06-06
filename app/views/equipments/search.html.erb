@@ -26,9 +26,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#">
-                <%= search_form_for @q, url :search_equipments_path do |f| %>
-                  <%= f.collection_check_boxes :abilitys_name_cont_all, @abilitys, :id, :name  %></br>
-                  <!--select-->
+                <%= search_form_for @q, url:search_equipments_path do |f| %>
+                  <%= f.collection_check_boxes :abilitys_name_eq_all, @abilitys, :id, :name, html_options: { class: 'form-group' } %></br>
                 <%= submit_tag "検索" %>
                 <% end %>
               </a>
@@ -56,10 +55,4 @@
 </div>
 
 <!--種類別タブ-->
-<%= render 'tab' %>
-
-<!--コンテンツ-->
-<div class="conetainer">
-
-</div>
-
+<%= render 'search' %>
