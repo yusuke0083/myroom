@@ -24,10 +24,12 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               アビリティ絞り込み
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#">
-                <%= search_form_for @q, url:search_equipments_path do |f| %>
-                  <%= f.collection_check_boxes :abilitys_name_eq_all, @abilitys, :id, :name, html_options: { class: 'form-group' } %></br>
+                <%= search_form_for(@q, url:search_equipments_path) do |f| %>
+                  <%= f.collection_check_boxes :abilitys_id_eq_all, @abilitys, :id, :name do |b| %>
+                    <%= b.label { b.check_box + b.text } %></br>
+                  <% end %>
                 <%= submit_tag "検索" %>
                 <% end %>
               </a>
@@ -49,10 +51,11 @@
 <div class="table table-bordered">
   <% if user_signed_in? %>
     <div class="user_nav grid-6">
-      <%= link_to '装備投稿へ', "/equipments/new", class:  'btn' %>
+      <%= link_to '装備投稿へ', "/equipments/new", class: 'btn' %>
     </div>
   <% end %>
 </div>
+
 
 <!--種類別タブ-->
 <%= render 'search' %>
