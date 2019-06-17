@@ -19,11 +19,11 @@
 
 
 <div class="tab-content">
-        <div id="tab1" class="tab-pane active">
+  <div id="tab1" class="tab-pane active">
             <div class="row">
             <div class="col-6">
                 <div class="row">
-                  <% @characters.each do |character| %>
+                  <% @chara.each do |character| %>
                     <div class="col-6">
                     <div class="panel panel-default col-auto col-offset-1">
                       <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>
@@ -52,7 +52,7 @@
             <div class="row">
             <div class="col-6">
                 <div class="row">
-                  <% @genre_mh.each do |character| %>
+                  <% @chara_mh.each do |character| %>
                     <div class="col-6">
                     <div class="panel panel-default col-auto col-offset-1">
                       <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>
@@ -81,7 +81,7 @@
           <div class="row">
             <div class="col-6">
                 <div class="row">
-                  <% @genre_battle.each do |character| %>
+                  <% @chara_battle.each do |character| %>
                     <div class="col-6">
                     <div class="panel panel-default col-auto col-offset-1">
                       <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>
@@ -110,7 +110,7 @@
             <div class="row">
             <div class="col-6">
                 <div class="row">
-                  <% @genre_mate.each do |character| %>
+                  <% @chara_mate.each do |character| %>
                     <div class="col-6">
                     <div class="panel panel-default col-auto col-offset-1">
                       <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>
@@ -139,7 +139,7 @@
             <div class="row">
             <div class="col-6">
                 <div class="row">
-                  <% @genre_nomal.each do |character| %>
+                  <% @chara_nomal.each do |character| %>
                     <div class="col-6">
                     <div class="panel panel-default col-auto col-offset-1">
                       <div id="name" class="panel-heading lead col-auto"><%= character.name %></div>

@@ -19,7 +19,7 @@
                   <% equipment.equip_abis.each do |equipments_abilitys| %>
                     <tbody>
                       <td class="col-auto"><%= equipments_abilitys.ability.name %></td>
-                      <td class="col-auto"><%= equipments_abilitys.valume %></td>
+                      <td class="col-auto"><%= equipments_abilitys.valume %> % </td>
                     </tbody>
                   <% end %>
                 </table>
@@ -31,7 +31,7 @@
                   <% equipment.equip_mates.each do |equipments_materials| %>
                     <tbody>
                       <td class="col-auto"><%= equipments_materials.material.name %></td>
-                      <td class="col-auto"><%= equipments_materials.value %></td>
+                      <td class="col-auto"><%= equipments_materials.value %> ヶ </td>
                    </tbody>
                   <% end %>
                 </table>

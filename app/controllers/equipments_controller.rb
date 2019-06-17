@@ -1,26 +1,26 @@
 class EquipmentsController < ApplicationController
         
     def index
-        @equipments = Equipment.all
-        @part_hand = Equipment.where("part=?",'手')
-        @part_head = Equipment.where("part=?",'頭')
-        @part_body = Equipment.where("part=?",'体')
-        @part_foot = Equipment.where("part=?",'足')
-        @part_accessory = Equipment.where("part=?",'アクセ')
+        @equipments = Equipment.all.order(:level)
+        @part_hand = Equipment.where("part=?",'手').order(:level)
+        @part_head = Equipment.where("part=?",'頭').order(:level)
+        @part_body = Equipment.where("part=?",'体').order(:level)
+        @part_foot = Equipment.where("part=?",'足').order(:level)
+        @part_accessory = Equipment.where("part=?",'アクセ').order(:level)
     # 検索機能
-        @abilitys = Ability.all
+        @abilitys = Ability.where("genre=? or genre=?",'装備','両用')
         @q = Equipment.ransack(params[:q])
-        @equip_all = @q.result.includes(:abilitys)
-        @equip_hand = @q.result.includes(:abilitys).where("part=?",'手')
-        @equip_head = @q.result.includes(:abilitys).where("part=?",'頭')
-        @equip_body = @q.result.includes(:abilitys).where("part=?",'体')
-        @equip_foot = @q.result.includes(:abilitys).where("part=?",'足')
-        @equip_accessory = @q.result.includes(:abilitys).where("part=?",'アクセ')
+        @equip_all = @q.result.includes(:abilitys).order(:level)
+        @equip_hand = @q.result.includes(:abilitys).where("part=?",'手').order(:level)
+        @equip_head = @q.result.includes(:abilitys).where("part=?",'頭').order(:level)
+        @equip_body = @q.result.includes(:abilitys).where("part=?",'体').order(:level)
+        @equip_foot = @q.result.includes(:abilitys).where("part=?",'足').order(:level)
+        @equip_accessory = @q.result.includes(:abilitys).where("part=?",'アクセ').order(:level)
     end
     
     def search
         @equipments = Equipment.all
-        @abilitys = Ability.all
+        @abilitys = Ability.where("genre=? or genre=?",'装備','両用')
         @q = Equipment.search(search_params)
         @equip_all = @q.result.includes(:abilitys)
         @equip_hand = @q.result.includes(:abilitys).where("part=?",'手')

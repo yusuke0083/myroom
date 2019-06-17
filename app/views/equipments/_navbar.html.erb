@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-info navbar-fixed-top">
+  <a class="navbar-brand" href="/">TOP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse navbar-left" id="navbarNavAltMarkup">
+    <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <%= link_to '　　装備　　', '/equipments', class: 'btn btn-danger' %>
+        </li>
+        
+        <li class="nav-item">
+          <%= link_to '　　英雄　　', '/characters', class: 'btn btn-info' %>
+        </li>
+        
+        <li class="nav-item">
+          <%= link_to '　　初心者向け/小ネタ　　', '/', class: 'btn btn-warning' %>
+        </li>
+    </ul>
+  </div>
+  
+  
+  <div class="collapse navbar-collapse navbar-right" id="navbarNavAltMarkup">
+    <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <!--ログイン投稿-->
+          <% if user_signed_in? %>
+              <%= link_to '装備投稿へ', "/equipments/new", class: 'btn btn-secondary' %>
+          <% end %>
+        </li>
+        
+        <li class="nav-item">
+          <!--ログイン-->
+            <% if user_signed_in? %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-dark' %>
+            <% else %>
+                <%= link_to "ログイン", new_user_session_path, class: 'btn btn-dark' %>
+            <% end %>
+        </li>
+    </ul>
+  </div>
+</nav>

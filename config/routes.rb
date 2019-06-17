@@ -14,7 +14,12 @@ Rails.application.routes.draw do
       get 'search', to: 'equipments#search'
     end
   end
-  resources :characters 
+  
+  resources :characters do
+    collection do
+      get 'search', to: 'characters#search'
+    end
+  end
 
 
 end

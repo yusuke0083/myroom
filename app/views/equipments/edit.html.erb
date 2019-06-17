@@ -1,11 +1,10 @@
+<%= render 'navbar' %>
+
 <div class="container">
   <div class="row">
-  <div class="panel panel-default col-auto">
+  <div class="panel panel-default">
     <%= form_for @equipment, url: "/equipments/#{@equipment.id}" do |f| %>
-      <h3>
-        編集する
-      </h3>
-      
+      <div class="panel-heading">編集する</div>
       <div class="panel-body">
         <div class="row">
         <div class="form-group">

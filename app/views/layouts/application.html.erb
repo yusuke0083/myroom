@@ -24,22 +24,9 @@
   </head>
 
   <body>
-        <div class="panel panel-default bg-success">
+    <div class="panel panel-default">
       <div class="panel-heading">
         <h1>mss情報板</h1>
-      </div>
-      <div class="panel-body">
-        <ul　class="table table-bordered">
-            <%= link_to 'TOP', '/', class: 'btn btn-primary' %>
-            <%= link_to '装備', '/equipments', class: 'btn btn-danger' %>
-            <%= link_to '英雄', '/characters', class: 'btn btn-info' %>
-            <%= link_to '初心者向け/小ネタ', '/', class: 'btn btn-warning' %>
-            <% if user_signed_in? %>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'pull-right'  %>
-            <% else %>
-                <%= link_to "ログイン", new_user_session_path, class: 'pull-right' %>
-          <% end %>
-        </ul>
       </div>
     </div>
     <%= yield %>
